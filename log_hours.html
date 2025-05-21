@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log Hours</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+    <h1>Michael's Amazing IT PAT</h1>
+</div>
+<div class="nav">
+    <a href="/">Home</a> |
+    <a href="/log-hours">Log Hours</a> |
+    <a href="/my-hours">My Hours</a> |
+    <a href="/logout">Logout</a>
+</div>
+
+    <h2>Log Your Community Service Hours</h2>
+
+   {% if success %}
+    <div id="successMessage" class="success">
+        Your hours were logged successfully!
+    </div>
+
+    <script>
+        setTimeout(function() {
+            var msg = document.getElementById('successMessage');
+            if (msg) {
+                msg.classList.add('fade-out');
+                setTimeout(() => msg.style.display = 'none', 500);
+            }
+        }, 3000);
+    </script>
+{% endif %}
+
+
+
+    <form method="POST">
+        <label>Activity:</label><br>
+        <input type="text" name="activity" required><br><br>
+
+        <label>Hours:</label><br>
+        <input type="number" name="hours" step="0.1" required><br><br>
+
+        <button type="submit">Submit Hours</button>
+    
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="header">
+        <h1>Michael's Amazing IT PAT</h1>
+    </div>
+
+    <div class="nav">
+        {% if logged_in %}
+            <a href="/">Home</a> |
+            <a href="/log-hours">Log Hours</a> |
+            <a href="/my-hours">My Hours</a> |
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/">Home</a> |
+            <a href="/register">Register</a> |
+            <a href="/login">Login</a>
+        {% endif %}
+    </div>
+
+    {% if logged_in %}
+        <h2>Welcome, {{ session['email'] }}</h2>
+        <p>Use the links above to log your hours or check your progress.</p>
+    {% else %}
+        <h2>Welcome to the Tracker</h2>
+        <p>Please register or log in to begin tracking your community service hours.</p>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Logged Hours</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+    <h1>Michael's Amazing IT PAT</h1>
+</div>
+<div class="nav">
+    <a href="/">Home</a> |
+    <a href="/log-hours">Log Hours</a> |
+    <a href="/my-hours">My Hours</a> |
+    <a href="/logout">Logout</a>
+</div>
+
+    <h2>My Logged Hours</h2>
+    <p>Total Hours: <strong>{{ total }}</strong></p>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Activity</th>
+            <th>Hours</th>
+        </tr>
+        {% for row in logs %}
+        <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <hr>
+<a href="/">
+    <button type="button">Return to Home</button>
+</a>
+
+</body>
+</html>
